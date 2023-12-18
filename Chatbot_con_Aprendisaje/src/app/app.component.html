@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="message-content" id="message-content" title="div de mensajes">
+    <div *ngFor="let message of messages" class="message">
+      <div ngClass={{message.type}}>
+        <span [innerHTML]="message.message">
+          <!-- {{message.message}} -->
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="input-div">
+    <input type="text" class="input-text" placeholder="Ingrese su Mensaje" [(ngModel)]="newMessage" [disabled]="canSendMessage" (keydown)="onEnterKey($event)">
+    <button class="send-button" (click)="sendMessage()" [disabled]="canSendMessage">
+      <img src="../assets/avion-de-papel.png" alt="">
+      <span>Enviar</span>
+    </button>
+  </div>
+</div>
